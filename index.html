@@ -20,7 +20,7 @@
     }
         .card {
             margin-block: 10px;
-            height: 80vh;
+            height: 90vh;
         }
         .card-img-top {
             object-fit: cover;
@@ -28,15 +28,26 @@
       }
       .card-body {
         height: 50%;
-        justify-content: space-around;
+        justify-content: space-between;
     display: flex;
     flex-direction: column;
+      }
+      li {
+        list-style: none;
+      }
+      #drop-list {
+        font-size: 0.9rem;
+        margin: 5px;
+        width: 25vw;
+      }
+      #drop-list button{
+        font-size: 0.8rem;
       }
   </style>
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light justify-content-between">
+    <nav class="navbar navbar-light bg-light justify-content-between sticky-top">
 
 
     <div class="dropdown">
@@ -45,11 +56,13 @@
         </a>
         <div class="dropdown-menu">
           <ul id="drop-list">
+            <li><button class="btn btn-secondary" onclick="removeAll(event)">remove all Items</button></li>
+            <li id="counter"></li>
           </ul>
         </div>
       </div>
   <div class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onkeyup="search(event)">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" oninput="search(this.value)">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </div>
 </nav>
@@ -60,6 +73,7 @@
     </div>
     <div class="list-container">
         <ul id="list">
+          
 
         </ul>
     </div>
