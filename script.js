@@ -51,7 +51,9 @@ const addToList = (book) => {
       list.innerHTML += `<li>${book[i].title}<br><button class="btn btn-danger pl-2" onclick="removeItem(event)">remove</button></li>`;
       counter++;
       const counterContainer = document.getElementById("counter");
-      counterContainer.innerHTML = `<p>The items in the cart is:${counter}</p>`;
+      counterContainer.innerHTML = `<p>The items in the cart is:${
+        document.querySelectorAll(".btn-danger").length
+      }</p>`;
     });
   }
 };
@@ -84,6 +86,10 @@ function search(query) {
 
 const removeItem = (event) => {
   event.target.parentElement.remove();
+  const counterContainer = document.getElementById("counter");
+  counterContainer.innerHTML = `<p>The items in the cart is:${
+    document.querySelectorAll(".btn-danger").length
+  }</p>`;
 };
 
 const removeAll = () => {
