@@ -42,12 +42,13 @@ const renderBooks = (result) => {
 const addToList = (book) => {
   const addBTN = document.querySelectorAll(".addBtn");
   const list = document.querySelector("#drop-list");
+
   let counter = 0;
   for (let i = 0; i < addBTN.length; i++) {
     const element = addBTN[i];
     element.addEventListener("click", () => {
       element.classList.add("btn-success");
-      list.innerHTML += `<li>${book[i].title}</li><button class="btn btn-danger" onclick="removeItem(event)">remove</button>`;
+      list.innerHTML += `<li>${book[i].title}<br><button class="btn btn-danger pl-2" onclick="removeItem(event)">remove</button></li>`;
       counter++;
       const counterContainer = document.getElementById("counter");
       counterContainer.innerHTML = `<p>The items in the cart is:${counter}</p>`;
